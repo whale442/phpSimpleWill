@@ -41,25 +41,8 @@ $beneficiary_shareValues =  implode("#",$beneficiary_shareValues);
  
  
     if (mysqli_query($conn, $sql)) {
-      // echo "New record created successfully";
-     
-      $body ="<style>
-      table, td, th {  
-        border: 1px solid #ddd;
-        text-align: left;
-        
-      }
       
-      table {
-        border-collapse: collapse;
-        width: 100%;
-      }
-      
-      th, td {
-        padding: 15px;
-      }
-      </style><h3>Dear MTL Team,</h3>A new User has just submitted request for <b>Simple Will Application</b>. Details is as follows:<br /><br /><table style='width:100%'><tr><td style='width:30px'>Fullname</td><td> $person_firstname $person_surname </td></tr><tr><td style='width:30px'>Address </td><td> $person_address </td></tr><tr><td style='width:30px'>Phone </td><td> $person_phone </td></tr></table> <br />Kindly click <a href='https://meristemtrustees.com/Trustees/admin/simple_will_admin.php'>here</a> to follow up.<br /><br />Thank you....";
-     
+  
     
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -67,10 +50,6 @@ $beneficiary_shareValues =  implode("#",$beneficiary_shareValues);
    
     
     mysqli_close($conn);
-
-
-
-
 
 }
  
