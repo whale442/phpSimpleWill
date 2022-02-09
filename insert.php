@@ -1,41 +1,80 @@
-<?php
 
-
-if (isset($_POST['submit'])) {
-
-    $person_title =  $_POST['person_title'];
-    $person_surname = $_POST['person_surname'];
-    $person_firstname =  $_POST['person_firstname'];
-    $person_othername = $_POST['person_title'];
-    $person_phone =  $_POST['person_phone'];
-    $person_address =  $_POST['person_address'];
-    $person_company =  $_POST['person_company'];
-    $person_companyAddress =  $_POST['person_companyAddress'];
-    $person_idNumber =  $_POST['person_idNumber'];
-    $person_pfa =  $_POST['person_pfa'];
-    $person_rsaNumber =  $_POST['person_rsaNumber'];
-    $will_executors =  $_POST['will_executors'];
-    $will_executors_others =  $_POST['will_executors_others'];
-    $person_bankName	 =  $_POST['person_bankName	'];
-    $person_accountNumber =  $_POST['person_accountNumber'];
-    $person_accountBranch =  $_POST['person_accountBranch'];
-    $beneficiary_fullname =  $_POST['beneficiary_fullname'];
-    $beneficiary_address =  $_POST['beneficiary_address'];
-    $beneficiary_phone =  $_POST['beneficiary_phone'];
-    $beneficiary_email	 =  $_POST['beneficiary_email	'];
-    $beneficiary_shareValues =  $_POST['beneficiary_shareValues'];
-    $date = date('Y-m-d H:i:s');
-
-    
-    $sql ="INSERT INTO clients (person_title, person_surname, person_firstname, person_othername, person_phone, person_address, person_companyAddress, person_idNumber, person_pfa, person_rsaNumber, will_executors, will_executors_others, person_bankName, person_accountNumber, person_accountBranch, beneficiary_fullname, beneficiary_address, beneficiary_phone, beneficiary_email, beneficiary_shareValues, person_company, create_date)
-                    VALUES ($person_title, $person_surname, $person_firstname, $person_othername, $person_phone, $person_address, $person_companyAddress, $person_idNumber, $person_pfa, $person_rsaNumber, $will_executors, $will_executors_others,$person_bankName, $person_accountNumber, $person_accountBranch, $beneficiary_fullname,$beneficiary_address, $beneficiary_phone, $beneficiary_email, $beneficiary_shareValues, $person_company)";    
-    
-   
-    
-
-}
-
+<?php require_once "connect.php"; 
 
 ?>
+
+
+<?php
+if(isset($_POST['submit']))
+{
+    $person_title = filter_var($_POST['person_title'], FILTER_SANITIZE_STRING);
+    $person_surname = filter_var($_POST['person_surname'], FILTER_SANITIZE_STRING);
+    $person_firstname = filter_var($_POST['person_firstname'], FILTER_SANITIZE_STRING);
+    $person_othername = filter_var($_POST['person_othername'], FILTER_SANITIZE_STRING);
+    $person_phone = filter_var($_POST['person_phone'], FILTER_SANITIZE_STRING);
+    $person_address = filter_var($_POST['person_address'], FILTER_SANITIZE_STRING);
+    $person_bankName = filter_var($_POST['person_bankName'], FILTER_SANITIZE_STRING);
+    $person_company = filter_var($_POST['person_company'], FILTER_SANITIZE_STRING);
+    $person_companyAddress = filter_var($_POST['person_companyAddress'], FILTER_SANITIZE_STRING);
+    $person_means_of_id = filter_var($_POST['person_means_of_id'], FILTER_SANITIZE_STRING);
+    $person_idNumber = filter_var($_POST['person_idNumber'], FILTER_SANITIZE_STRING);
+    $person_rsaNumber =  filter_var($_POST['person_rsaNumber'], FILTER_SANITIZE_STRING);
+    $person_pfa =  filter_var($_POST['person_pfa'], FILTER_SANITIZE_STRING);
+    $will_executor =  filter_var($_POST['will_executors'], FILTER_SANITIZE_STRING);
+    $will_executor_others =  filter_var($_POST['will_executors_others'], FILTER_SANITIZE_STRING);
+
+$banks="";
+extract($_POST);
+
+$banks =  implode("#",$person_bankName);
+$accounts =  implode("#",$person_accountNumber);
+$branch =  implode("#",$person_accountBranch);
+$beneficiary_fullname =  implode("#",$beneficiary_fullname);
+$beneficiary_address =  implode("#",$beneficiary_address);
+$beneficiary_phone =  implode("#",$beneficiary_phone);
+$beneficiary_email =  implode("#",$beneficiary_email);
+$beneficiary_shareValues =  implode("#",$beneficiary_shareValues);
+
+   $sql = "INSERT INTO clients (person_title, person_surname, person_firstname,person_othername person_phone, person_address, person_company, person_companyAddress, person_pfa, rsa_number,person_bankName,person_accountNumber,person_means_of_id,person_means_of_id_number, beneficiary_fullname beneficiary_address,beneficiary_phone,beneficiary_email,shares,person_accountBranch,will_executor will_executor_others) 
+        VALUES ('$person_title', '$person_surname', '$person_firstname','$person_othername','$person_phone','$person_address','$person_company', '$person_companyAddress','$person_pfa','$person_rsaNumber','$banks','$accounts','$person_means_of_id','$person_idNumber', '$beneficiary_fullname','$beneficiary_address', '$beneficiary_phone','$beneficiary_email','$beneficiary_shareValues','$branch','$will_executor','$will_executor_others')";
+
+ 
+ 
+    if (mysqli_query($conn, $sql)) {
+      // echo "New record created successfully";
      
+      $body ="<style>
+      table, td, th {  
+        border: 1px solid #ddd;
+        text-align: left;
         
+      }
+      
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      th, td {
+        padding: 15px;
+      }
+      </style><h3>Dear MTL Team,</h3>A new User has just submitted request for <b>Simple Will Application</b>. Details is as follows:<br /><br /><table style='width:100%'><tr><td style='width:30px'>Fullname</td><td> $person_firstname $person_surname </td></tr><tr><td style='width:30px'>Address </td><td> $person_address </td></tr><tr><td style='width:30px'>Phone </td><td> $person_phone </td></tr></table> <br />Kindly click <a href='https://meristemtrustees.com/Trustees/admin/simple_will_admin.php'>here</a> to follow up.<br /><br />Thank you....";
+     
+    
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
+   
+    
+    mysqli_close($conn);
+
+
+
+
+
+}
+ 
+?>
+
+
+
