@@ -1,0 +1,64 @@
+
+.button_ {
+background-color: #4CAF50;
+border: none;
+color: white;
+padding: 7px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 4px 2px;
+}
+
+/* .button_5 {
+ border-radius: 50%;
+ 
+} */
+
+.black_overlay 
+{
+   display: none;
+   position: fixed;
+   top: 0%;
+   left: 0%;
+   width: 100%;
+   height: 100%;
+   background-color: black;
+   z-index: 1001;
+   -moz-opacity: 0.8;
+   opacity: .80;
+   filter: alpha(opacity=80);
+   
+}
+.white_content {
+display: none;
+position: fixed;
+top: 2%;
+left: 3%;
+width: 90%;
+height:auto;
+padding: 16px;
+border: 2px solid white;
+background-color: white;
+z-index: 1002;
+overflow: auto;
+} 
+
+.book-form input[type="button"] {
+ text-transform: capitalize;
+ background: #154d34;
+ color: #ffffff;
+ padding: 0.7em 6em;
+ border: none;
+ border: 2px solid #154d34;
+ font-weight: 600;
+ font-size: 1em;
+ margin-top: 0em;
+ outline: none;
+ letter-spacing: 1px;
+ -webkit-transition: .5s all;
+ -moz-transition: .5s all;
+ transition: .5s all;
+ cursor: pointer;
+} 

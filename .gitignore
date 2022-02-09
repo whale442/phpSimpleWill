@@ -1,0 +1,27 @@
+.DS_Store
+# Created by https://www.toptal.com/developers/gitignore/api/phpcodesniffer,thinkphp
+# Edit at https://www.toptal.com/developers/gitignore?templates=phpcodesniffer,thinkphp
+
+### PHPCodeSniffer ###
+# CodeSniffer
+
+/vendor/*
+/wpcs/*
+
+### ThinkPHP ###
+# gitignore template for ThinkPHP v3.2.3
+# website: http://www.thinkphp.cn/
+
+# Logs and Cache files
+/Application/Runtime/
+
+# Common configure file
+/Application/Common/Conf/config.php
+
+/id.md
+/Application/MAMP/htdoc/clientsimple/json-03-crud
+
+
+/static
+
+# End of https://www.toptal.com/developers/gitignore/api/phpcodesniffer,thinkphp
