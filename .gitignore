@@ -24,4 +24,12 @@
 
 /static
 
+!.gitignore
+
+# ignore log files and databases
+*.log
+*.sql
+*.sqlite
+*.id.md
+
 # End of https://www.toptal.com/developers/gitignore/api/phpcodesniffer,thinkphp
