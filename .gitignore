@@ -4,6 +4,11 @@
 
 ### PHPCodeSniffer ###
 # CodeSniffer
+##### MacOS
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
 
 /vendor/*
 /wpcs/*
@@ -31,5 +36,12 @@
 *.sql
 *.sqlite
 *.id.md
+*.clients.php
 
+*.note.md
+
+.note.md
+# Db
+.dbuser.sql
+.dbtable.sql
 # End of https://www.toptal.com/developers/gitignore/api/phpcodesniffer,thinkphp

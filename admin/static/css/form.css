@@ -1,0 +1,51 @@
+input, button, select, optgroup, textarea {
+    
+
+
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+}
+
+.button_ button_5{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    /* padding: 10px; */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+}
+
+
+
+.button_{
+    /* width: 150px; */
+    /* padding: 10px; */
+    border: none;
+    border-radius: 5px; 
+    background:  #1c87c9;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    }
+.button_ {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  /* padding: 23; */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+}
