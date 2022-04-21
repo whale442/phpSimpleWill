@@ -1,4 +1,4 @@
-.DS_Store
+*.DS_Store
 # Created by https://www.toptal.com/developers/gitignore/api/phpcodesniffer,thinkphp
 # Edit at https://www.toptal.com/developers/gitignore?templates=phpcodesniffer,thinkphp
 
@@ -42,6 +42,6 @@
 
 .note.md
 # Db
-.dbuser.sql
-.dbtable.sql
+*.dbuser.sql
+*.dbtable.sql
 # End of https://www.toptal.com/developers/gitignore/api/phpcodesniffer,thinkphp
